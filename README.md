@@ -23,7 +23,7 @@
 
 <br><br>
 
-<img src="docs/images/hero.png" alt="iM Docent 와 iM Print 주요 화면" width="100%">
+<img src="docs/images/hero.jpg" alt="iM Docent 와 iM Print 주요 화면" width="100%">
 
 </div>
 
@@ -77,7 +77,7 @@
 
 ### iM Docent
 
-<img src="docs/images/docent-flow.png" alt="iM Docent 화면 흐름" width="100%">
+<img src="docs/images/docent-flow.jpg" alt="iM Docent 화면 흐름" width="100%">
 
 - **원문 그대로 + 핵심조항 강조** — 실제 iM뱅크 약관 PDF 위에, 결과가 고객에게 돌아오는 조항만 빨갛게 표시합니다. 글자 크기 조절.
 - **쉬운 설명(easy)** — 조항마다 쉬운 말 카드. 대출은 "금리가 1%p 오르면 1년 이자가 얼마나 늘까" 계산 카드.
@@ -87,7 +87,7 @@
 
 ### iM Print
 
-<img src="docs/images/print-flow.png" alt="iM Print 화면 흐름" width="100%">
+<img src="docs/images/print-flow.jpg" alt="iM Print 화면 흐름" width="100%">
 
 - **동의 영수증** — 어떤 문서의 어떤 조항을 보고, 문제를 어떻게 풀고, 무엇을 결정했는지. QR을 찍으면 체인 기록이 열립니다.
 - **블록체인 원본 검증** — 화면의 영수증으로 지문을 **지금 다시 계산**해서 체인에 적힌 지문과 비교합니다. 같으면 "원본 일치".
