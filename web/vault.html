@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>iM Print</title>
+    <meta name="description" content="발급된 동의 영수증을 모아 보관하고 블록체인 기록과 대조합니다." />
+
+    <!-- 앱 ② 만 설치(PWA)된다 — 앱 ①(consent.html)에는 manifest·SW를 두지 않는다 (2026-09-14 결정) -->
+    <link rel="manifest" href="./vault/manifest.webmanifest" />
+    <meta name="theme-color" content="#0D6B68" />
+    <link rel="apple-touch-icon" href="./vault/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="iM Print" />
+    <link rel="icon" type="image/svg+xml" href="./vault.svg" />
+    <link rel="alternate icon" type="image/png" sizes="192x192" href="./vault/icons/icon-192.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/vault/main.tsx"></script>
+  </body>
+</html>

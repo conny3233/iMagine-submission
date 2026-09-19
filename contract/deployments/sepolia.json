@@ -1,0 +1,11 @@
+{
+  "contract": "ConsentRegistry",
+  "network": "sepolia",
+  "chainId": 11155111,
+  "address": "0x83c8B1AF7A0D215Bcd9c744F16Bf05B9AFCBBAEe",
+  "deployTxHash": "0xa39dad84d34510d9ff708aeab9b77e6318791db0c8763b460cd2b848abebc00a",
+  "deployBlock": 11697104,
+  "deployer": "0x94D1E532Fb20739D44190E245d5Ad5bD5f83Ed9d",
+  "deployedAt": "2026-09-13T16:37:13.004Z",
+  "explorer": "https://sepolia.etherscan.io"
+}

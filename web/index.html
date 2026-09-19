@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./docent.svg" />
+    <link rel="apple-touch-icon" href="./docent-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동의 영수증 — 개발용 진입점</title>
+  </head>
+  <body>
+    <main style="max-width: 34rem; margin: 3rem auto; padding: 0 1.5rem; font-family: sans-serif; line-height: 1.6">
+      <h1>동의 영수증</h1>
+      <p>이 페이지는 로컬 개발용 안내일 뿐, 시연·제출용 화면이 아닙니다.</p>
+      <ul>
+        <li>
+          <a href="./consent.html">앱 ① iM Docent</a> — iM뱅크 서비스 화면 (설치 없음)
+          <ul>
+            <li><a href="./consent.html?product=isa-discretionary">ISA(일임형) 약관</a>으로 바로 열기</li>
+            <li><a href="./consent.html?product=ssdam-loan">쓰담쓰담 간편대출</a>로 바로 열기</li>
+          </ul>
+        </li>
+        <li><a href="./vault.html">앱 ② iMprint</a> — 설치되는 PWA (아이폰은 Safari 로 열어야 설치 메뉴가 나옵니다)</li>
+      </ul>
+      <p>
+        촬영 순서는 <code>docs/DEMO.md</code>, 점검은 <code>npm run e2e</code>,
+        제출본은 <code>npm run build:offline</code> 을 보세요.
+      </p>
+    </main>
+  </body>
+</html>

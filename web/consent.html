@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./docent.svg" />
+    <!-- iOS는 SVG favicon을 "홈 화면에 추가"에 안 쓰고 apple-touch-icon(PNG)만 본다 -->
+    <link rel="apple-touch-icon" href="./docent-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iM Docent</title>
+    <!--
+      앱 ① — iM뱅크 서비스 안의 한 화면으로 보여줄 것이라 설치(PWA) 설정을 두지 않는다
+      (2026-09-14 결정, two-app-structure 메모리). manifest·service worker는 앱 ②(vault.html)만.
+    -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/consent/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+# iMagine 백엔드 (api/) + 계산 엔진 (engine/) + 테스트 의존성
+# 설치:  py -3 -m venv .venv
+#        .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+
+fastapi
+uvicorn[standard]
+pydantic>=2
+python-dotenv
+pandas
+anthropic
+pytest
+httpx

@@ -1,0 +1,79 @@
+{
+  "payload": {
+    "receiptId": "rcpt_loan_0002",
+    "scenarioId": "ssdam-loan-v1",
+    "document": {
+      "id": "ssdam-loan",
+      "version": "v1",
+      "hash": "0x731693e1a9e973a6e0a394bdda1718c9bee1129feede43271356c464c1f14cdc"
+    },
+    "conceptsShown": [
+      "credit-loan",
+      "floating-rate",
+      "repayment",
+      "prepayment",
+      "overdue",
+      "acceleration",
+      "credit-score",
+      "withdrawal",
+      "terms-change"
+    ],
+    "explanationMode": {
+      "style": "easy",
+      "largeText": false
+    },
+    "questions": [
+      {
+        "conceptId": "credit-loan",
+        "attempt": 1,
+        "correct": true,
+        "choiceId": "A"
+      },
+      {
+        "conceptId": "floating-rate",
+        "attempt": 1,
+        "correct": false,
+        "choiceId": "C"
+      },
+      {
+        "conceptId": "floating-rate",
+        "attempt": 2,
+        "correct": true,
+        "choiceId": "A"
+      },
+      {
+        "conceptId": "repayment",
+        "attempt": 1,
+        "correct": true,
+        "choiceId": "B"
+      },
+      {
+        "conceptId": "prepayment",
+        "attempt": 1,
+        "correct": true,
+        "choiceId": "C"
+      }
+    ],
+    "calculation": {
+      "principal": "30000000",
+      "rateBeforePct": "4.2",
+      "rateAfterPct": "5.2",
+      "yearlyDiffWon": "300000"
+    },
+    "decision": {
+      "choice": "agree",
+      "at": "2026-09-18T02:40:00Z"
+    }
+  },
+  "recordHash": "0xf090f87530cad780eaabcb41980d0a009ace55937d97c538d2aaa820f6213e94",
+  "chainAttachment": {
+    "network": "sepolia",
+    "chainId": 11155111,
+    "contractAddress": "0x83c8B1AF7A0D215Bcd9c744F16Bf05B9AFCBBAEe",
+    "txHash": "0xd67f7204b2e10e061d22c49d0da62624dc24555ca7367279fe0e519e2162dca0",
+    "blockNumber": 11725548,
+    "recordedAt": "2026-09-17T18:44:36.000Z",
+    "issuerAddress": "0x94D1E532Fb20739D44190E245d5Ad5bD5f83Ed9d",
+    "explorerTxUrl": "https://sepolia.etherscan.io/tx/0xd67f7204b2e10e061d22c49d0da62624dc24555ca7367279fe0e519e2162dca0"
+  }
+}

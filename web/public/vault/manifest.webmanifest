@@ -1,0 +1,19 @@
+{
+  "id": "/vault.html",
+  "name": "iM Print",
+  "short_name": "iM Print",
+  "description": "발급된 동의 영수증을 모아 보관하고, 블록체인 기록과 대조해 검증합니다. 기관 무관 범용 인프라입니다.",
+  "lang": "ko",
+  "start_url": "/vault.html",
+  "scope": "/vault.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f5f7",
+  "theme_color": "#13202e",
+  "categories": ["finance", "utilities"],
+  "icons": [
+    { "src": "/vault/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/vault/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/vault/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

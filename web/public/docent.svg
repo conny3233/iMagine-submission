@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2DCE9C"/>
+      <stop offset="1" stop-color="#C9EC66"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="23" fill="url(#bg)"/>
+  <!-- 흰 말풍선 (꼬리는 왼쪽 아래) -->
+  <rect x="16" y="20" width="69" height="51.3" rx="16" fill="#fff"/>
+  <path d="M27.6 66 L26.2 84.2 Q26.1 85.4 27.1 84.7 L44 71 Z" fill="#fff"/>
+  <!-- iM 글리프: 막대 + 두 개의 아치 -->
+  <g fill="#49D496">
+    <rect x="24.8" y="42.5" width="9" height="15.4" rx="0.8"/>
+    <path d="M33.8 34 A23.9 23.9 0 0 1 57.7 57.9 L49.2 57.9 A15.4 15.4 0 0 0 33.8 42.5 Z"/>
+    <path d="M75.9 34 A23.9 23.9 0 0 0 52 57.9 L60.5 57.9 A15.4 15.4 0 0 1 75.9 42.5 Z"/>
+  </g>
+</svg>

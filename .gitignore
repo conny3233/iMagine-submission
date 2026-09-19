@@ -1,0 +1,53 @@
+# ── OS ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ──
+.vscode/
+.idea/
+*.swp
+*~
+
+# ── Node / Frontend (React) ──
+node_modules/
+dist/
+build/
+.next/
+coverage/
+*.local
+
+# ── Python / Backend (Flask, FastAPI) ──
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Secrets / Env ──
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ── Blockchain (Hardhat / Foundry) ──
+artifacts/
+cache/
+out/
+typechain-types/
+broadcast/
+
+# ── 임시 생성물 ──
+scripts/_chain_check.py
+tests/_tmp_*.json
+
+# ── Logs ──
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+tmp/

@@ -1,0 +1,9 @@
+node_modules/
+artifacts/
+cache/
+typechain-types/
+
+# 로컬 인메모리 배포 기록은 휘발성이라 커밋하지 않는다.
+# 실제 테스트넷 배포(sepolia.json)는 기록으로 커밋한다 — 앱이 이 파일을 믿을 수 있는 계약 주소 목록으로 읽는다.
+deployments/hardhat.json
+deployments/localhost.json

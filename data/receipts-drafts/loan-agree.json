@@ -1,0 +1,31 @@
+{
+  "receiptId": "rcpt_loan_0002",
+  "scenarioId": "ssdam-loan-v1",
+  "document": { "id": "ssdam-loan", "version": "v1" },
+  "conceptsShown": [
+    "credit-loan",
+    "floating-rate",
+    "repayment",
+    "prepayment",
+    "overdue",
+    "acceleration",
+    "credit-score",
+    "withdrawal",
+    "terms-change"
+  ],
+  "explanationMode": { "style": "easy", "largeText": false },
+  "questions": [
+    { "conceptId": "credit-loan", "attempt": 1, "correct": true, "choiceId": "A" },
+    { "conceptId": "floating-rate", "attempt": 1, "correct": false, "choiceId": "C" },
+    { "conceptId": "floating-rate", "attempt": 2, "correct": true, "choiceId": "A" },
+    { "conceptId": "repayment", "attempt": 1, "correct": true, "choiceId": "B" },
+    { "conceptId": "prepayment", "attempt": 1, "correct": true, "choiceId": "C" }
+  ],
+  "calculation": {
+    "principal": "30000000",
+    "rateBeforePct": "4.2",
+    "rateAfterPct": "5.2",
+    "yearlyDiffWon": "300000"
+  },
+  "decision": { "choice": "agree", "at": "2026-09-18T02:40:00Z" }
+}

@@ -1,0 +1,59 @@
+{
+  "payload": {
+    "receiptId": "rcpt_isa_0001",
+    "scenarioId": "isa-discretionary-v1",
+    "document": {
+      "id": "isa-discretionary",
+      "version": "v1",
+      "hash": "0x3d125216614ff9a924c82b153d939a1178437183568e30e33d8d100c3f059ff0"
+    },
+    "conceptsShown": [
+      "contract-period",
+      "discretion-scope",
+      "early-termination",
+      "profit-loss",
+      "fee",
+      "terms-change"
+    ],
+    "explanationMode": {
+      "style": "easy",
+      "largeText": false
+    },
+    "questions": [
+      {
+        "conceptId": "early-termination",
+        "attempt": 1,
+        "correct": false,
+        "choiceId": "A"
+      },
+      {
+        "conceptId": "early-termination",
+        "attempt": 2,
+        "correct": true,
+        "choiceId": "C"
+      },
+      {
+        "conceptId": "profit-loss",
+        "attempt": 1,
+        "correct": true,
+        "choiceId": "B"
+      }
+    ],
+    "calculation": null,
+    "decision": {
+      "choice": "agree",
+      "at": "2026-09-17T05:32:00Z"
+    }
+  },
+  "recordHash": "0x1a09f1e51fa163ad04256d062b617633005d5260eabe7ff0c5bb47ae3c0d808e",
+  "chainAttachment": {
+    "network": "sepolia",
+    "chainId": 11155111,
+    "contractAddress": "0x83c8B1AF7A0D215Bcd9c744F16Bf05B9AFCBBAEe",
+    "txHash": "0xd991034fa8b2e05e05acb121a40eb4c1f076b3bc1489ad620c78a9cab277bc3b",
+    "blockNumber": 11715112,
+    "recordedAt": "2026-09-16T06:45:12.000Z",
+    "issuerAddress": "0x94D1E532Fb20739D44190E245d5Ad5bD5f83Ed9d",
+    "explorerTxUrl": "https://sepolia.etherscan.io/tx/0xd991034fa8b2e05e05acb121a40eb4c1f076b3bc1489ad620c78a9cab277bc3b"
+  }
+}

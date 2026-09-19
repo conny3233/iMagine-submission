@@ -1,0 +1,14 @@
+{
+  "receiptId": "rcpt_isa_0001",
+  "scenarioId": "isa-discretionary-v1",
+  "document": { "id": "isa-discretionary", "version": "v1" },
+  "conceptsShown": ["contract-period", "discretion-scope", "early-termination", "profit-loss", "fee", "terms-change"],
+  "explanationMode": { "style": "easy", "largeText": false },
+  "questions": [
+    { "conceptId": "early-termination", "attempt": 1, "correct": false, "choiceId": "A" },
+    { "conceptId": "early-termination", "attempt": 2, "correct": true, "choiceId": "C" },
+    { "conceptId": "profit-loss", "attempt": 1, "correct": true, "choiceId": "B" }
+  ],
+  "calculation": null,
+  "decision": { "choice": "agree", "at": "2026-09-17T05:32:00Z" }
+}

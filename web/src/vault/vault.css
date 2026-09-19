@@ -1,0 +1,1084 @@
+/* 앱 ② "iM Print" 화면 스타일 — 피그마 「IM print UI」(2026-09-18 최종본). 폭 393px 화면 기준 값을 그대로 옮겼다.
+   색·간격 토큰 중 공용은 ../styles.css 의 :root 를 쓰고, 피그마에서 온 값은 아래 --im-* 로 모았다. */
+
+.im-shell {
+  --im-side: 24px;
+  --im-green: #00c4a6; /* 선택된 탭 · iM뱅크 칩 */
+  --im-teal: #00a18e; /* 도장 · 검증서 */
+  --im-teal-ink: #004a42; /* 알림 글자 */
+  --im-red: #9e0000; /* 블록체인 탭 */
+  --im-gray-btn: #666666;
+  --im-paper: #fcfbf4;
+  --im-header-h: calc(62px + env(safe-area-inset-top, 0px));
+  min-height: 100dvh;
+  background: #fff;
+  color: #000;
+}
+
+.im-shell :focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ── 상단 바 ── */
+
+/* iOS 독립 실행(PWA) 모드는 상태 바 밑까지 그린다 (vault.html 의 viewport-fit=cover +
+   black-translucent). 초록 바가 상태 바 뒤까지 깔리고, 글자·버튼은 안전 영역 아래로 내린다. */
+.im-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--im-header-h);
+  padding: env(safe-area-inset-top, 0px) var(--im-side) 0;
+  background: #0b6b5b url("./assets/header-bg.webp") center bottom / cover no-repeat;
+}
+
+.im-title {
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.im-home {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -8px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* ── 홈: 중요 알림 ── */
+
+.im-home-page,
+.im-detail {
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.im-home-page {
+  padding: 21px var(--im-side) calc(96px + env(safe-area-inset-bottom, 0px));
+}
+
+.im-notices-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 0.7px solid #9bd4cb;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.im-notices h2,
+.im-vault h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.im-notices h2 {
+  font-size: 16px;
+}
+
+/* 동그라미 + (장식 — 피그마 메모: 알림 전체 화면은 만들지 않는다) */
+.im-plus {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #00816c;
+  border-radius: 50%;
+}
+
+.im-plus::before,
+.im-plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 1px;
+  background: #00816c;
+  transform: translate(-50%, -50%);
+}
+
+.im-plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.im-notices ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.im-notices li button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--im-teal-ink);
+  font: inherit;
+  font-size: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* 긴 알림은 날짜 앞에서 흐려지며 잘린다 (피그마의 흰색 그라데이션) */
+.im-notice-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 49px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 49px), transparent);
+}
+
+.im-notice-date {
+  flex: none;
+  width: 56px;
+  text-align: right;
+}
+
+.im-notice-empty {
+  margin: 12px 0 0;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* ── 홈: 보관함 ── */
+
+.im-vault {
+  margin-top: 26px;
+}
+
+.im-vault h2 {
+  font-size: 20px;
+}
+
+.im-vault-sub {
+  margin: 9px 0 0;
+  font-size: 10px;
+}
+
+/* 폴더 탭 — 오른쪽 위만 둥근 탭이 10px 씩 겹친다. 고른 탭이 맨 위, 나머지는 흰 막(60%)에 덮인다. */
+.im-folders {
+  display: flex;
+  margin-top: 22px;
+  border-bottom: 1px solid #efefef;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.15);
+}
+
+.im-folder {
+  position: relative;
+  flex: none;
+  width: 67px;
+  height: 20px;
+  margin-left: -10px;
+  padding: 0;
+  border: 0;
+  border-radius: 0 10px 0 0;
+  background: color-mix(in srgb, var(--folder) 40%, #fff);
+  color: rgba(0, 0, 0, 0.45);
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.im-folder:first-child {
+  width: 61px;
+  margin-left: 0;
+}
+
+.im-folder:last-child {
+  width: 61px;
+}
+
+.im-folder.on {
+  background: var(--folder);
+  color: #000;
+}
+
+.im-folder.on:first-child {
+  color: #fff;
+}
+
+.im-vault-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 9px;
+  font-size: 10px;
+}
+
+/* 정렬: 보이는 건 글자 + 꺾쇠, 실제로 누르는 건 그 위에 투명하게 깐 기본 select (폰의 기본 선택 창이 뜬다) */
+.im-sort {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.im-sort select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  font-size: 16px; /* iOS 가 확대하지 않게 */
+  cursor: pointer;
+}
+
+.im-sort img {
+  transform: rotate(-90deg);
+}
+
+.im-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 96px);
+  justify-content: space-between;
+  row-gap: 24px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.im-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 96px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #000;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.im-thumb {
+  position: relative;
+  display: block;
+  width: 96px;
+  height: 135px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.im-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.im-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.27);
+}
+
+.im-thumb-tag {
+  position: absolute;
+  z-index: 1;
+  right: 5px;
+  bottom: 5px;
+  padding: 2px 5px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 9px;
+}
+
+.im-tile-name {
+  display: -webkit-box;
+  margin-top: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: keep-all;
+}
+
+.im-tile-date {
+  margin-top: 3px;
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.im-empty {
+  margin: 24px 0;
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.im-bottom-fade {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+  pointer-events: none;
+}
+
+/* ── 상세: 탭 4개 ── */
+
+.im-tabs {
+  position: sticky;
+  top: var(--im-header-h);
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  padding: 19px var(--im-side) 10px;
+  overflow-x: auto;
+  background: #fff;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 25px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 25px), transparent);
+}
+
+.im-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.im-tab {
+  flex: none;
+  height: 28px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--im-gray-btn);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.im-tab.on {
+  background: var(--im-green);
+}
+
+.im-tab.on.red {
+  background: var(--im-red);
+}
+
+.im-tab:last-child {
+  margin-right: 25px;
+}
+
+.im-panel {
+  padding: 7px 26px calc(40px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ── 동의 영수증 (종이) ── */
+
+.paper-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1.5rem;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+.paper {
+  --ink: #000;
+  --ink-dim: #6f6a5f;
+  position: relative;
+  width: 100%;
+  max-width: 342px;
+  margin: 7px 0;
+  padding: 23px 19px 18px;
+  background: var(--im-paper);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* 위아래 톱니 가장자리 (감열지 영수증을 찢은 모양) — 피그마의 6.2px 간격 톱니 */
+.paper::before,
+.paper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 7px;
+}
+
+.paper::before {
+  top: -7px;
+  background:
+    linear-gradient(45deg, var(--im-paper) 50%, transparent 50%) 0 0 / 12.4px 7px repeat-x,
+    linear-gradient(-45deg, var(--im-paper) 50%, transparent 50%) 0 0 / 12.4px 7px repeat-x;
+}
+
+.paper::after {
+  bottom: -7px;
+  background:
+    linear-gradient(135deg, var(--im-paper) 50%, transparent 50%) 0 0 / 12.4px 7px repeat-x,
+    linear-gradient(-135deg, var(--im-paper) 50%, transparent 50%) 0 0 / 12.4px 7px repeat-x;
+}
+
+.paper-head {
+  text-align: center;
+}
+
+.paper-logo {
+  display: block;
+  margin: 6px auto 0;
+  object-fit: contain;
+}
+
+.paper-issuer {
+  font-weight: 600;
+}
+
+.paper-brand {
+  margin-top: 9px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.paper-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.paper-meta-right {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.paper-rule {
+  border: 0;
+  border-top: 1px dashed #787878;
+  margin: 8px 0;
+}
+
+.paper-rule.double {
+  border-top: 3px double #787878;
+  margin-top: 16px;
+}
+
+.paper-doc-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.paper-doc-title b {
+  font-weight: 600;
+}
+
+.paper-table {
+  display: grid;
+  gap: 7px;
+  padding: 2px 0;
+}
+
+.paper-tr {
+  display: grid;
+  grid-template-columns: 72px 1fr 52px;
+  align-items: start;
+  gap: 6px;
+}
+
+.paper-tr > span:nth-child(2) {
+  text-align: center;
+  word-break: keep-all;
+}
+
+.paper-tr > span:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.paper-tr.head {
+  padding-bottom: 7px;
+  border-bottom: 1px dashed #787878;
+}
+
+.paper-section {
+  font-size: 12px;
+}
+
+.paper-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.paper-row-value {
+  text-align: right;
+}
+
+.paper-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.paper-hash,
+.paper-chain-text {
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Malgun Gothic", monospace;
+}
+
+.paper-hash {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  word-spacing: 0.25em;
+}
+
+.paper-chain {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.paper-qr {
+  flex: none;
+  display: block;
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+.paper-qr svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.paper-chain-text {
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.paper-chain-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.paper-chain-hint,
+.paper-chain-pending,
+.paper-foot {
+  color: var(--ink-dim);
+}
+
+.paper-chain-hint {
+  margin-top: 0.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+.paper-chain-pending {
+  text-align: center;
+}
+
+.paper-foot {
+  margin-top: 0.8rem;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+/* 대조 결과 도장 — 체인을 실제로 읽은 뒤에만 찍힌다 (피그마: 겹 원 86px, 글자 -15° 기울임) */
+.paper-stamp {
+  position: absolute;
+  top: 29px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 86px;
+  height: 86px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 10px;
+  line-height: 1.25;
+  text-align: center;
+  pointer-events: none;
+  animation: stamp-in 0.35s ease-out;
+}
+
+.paper-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.paper-stamp span,
+.paper-stamp b {
+  transform: rotate(-15deg);
+}
+
+.paper-stamp b {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.paper-stamp.ok {
+  color: var(--im-teal);
+}
+
+.paper-stamp.bad {
+  color: #b42318;
+}
+
+@keyframes stamp-in {
+  from {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-stamp {
+    animation: none;
+  }
+}
+
+/* ── 블록체인 원본 검증서 ── */
+
+.cert-wrap {
+  padding: 10px 0 0 11px;
+}
+
+.cert {
+  position: relative;
+  max-width: 331px;
+  padding: 44px 16px 24px;
+  background: #fdfdfd;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+  color: #1f2a37;
+}
+
+.cert-logo {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  object-fit: contain;
+  opacity: 0.5;
+}
+
+.cert-title {
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cert-no {
+  margin: 12px 0 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.cert-no span {
+  margin-right: 6px;
+  color: #4b5563;
+}
+
+.cert-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 14px auto 0;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cert-badge.good {
+  background: #e6f9f4;
+  color: var(--im-teal);
+}
+
+.cert-badge.bad {
+  background: #fdecec;
+  color: #b42318;
+}
+
+.cert-badge.wait {
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+.cert-badge-mark {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.cert-badge.good .cert-badge-mark {
+  background: var(--im-teal);
+  color: #fff;
+}
+
+.cert-badge.bad .cert-badge-mark {
+  background: #b42318;
+  color: #fff;
+}
+
+.cert-line {
+  margin: 10px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.cert-line.good {
+  color: var(--im-teal);
+}
+
+.cert-line.bad {
+  color: #b42318;
+}
+
+.cert-pending {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.cert-pending p {
+  margin: 0;
+}
+
+.cert-pending.bad {
+  border-color: #f3b4b0;
+  color: #b42318;
+}
+
+.cert-pending a {
+  display: inline-block;
+  margin-top: 6px;
+  color: inherit;
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+.cert-rows {
+  margin: 14px 0 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cert-rows > div {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 8px;
+  padding: 8px 6px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 12px;
+}
+
+.cert-rows dt {
+  color: #4b5563;
+}
+
+.cert-rows dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.cert-rows a {
+  color: inherit;
+}
+
+.cert-hash {
+  margin-top: 12px;
+  padding: 4px 12px;
+  border: 1px solid #2cbf9f;
+  border-radius: 8px;
+  background: #effaf7;
+}
+
+.cert-hash.bad {
+  border-color: #f3b4b0;
+  background: #fdf2f2;
+}
+
+.cert-hash-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  font-size: 12px;
+}
+
+.cert-hash-row span {
+  color: #4b5563;
+}
+
+.cert-hash-row code {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--im-teal);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cert-hash.bad .cert-hash-row code,
+.cert-hash.bad .cert-hash-row b {
+  color: #b42318;
+}
+
+.cert-hash-row.result {
+  border-top: 1px solid #d5e9e3;
+}
+
+.cert-hash-row b {
+  color: var(--im-teal);
+  font-size: 15px;
+}
+
+.cert-eq {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--im-teal);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cert-eq::before,
+.cert-eq::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d5e9e3;
+}
+
+.cert-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 20px;
+  border: 1.5px solid #2cbf9f;
+  border-radius: 8px;
+  color: #0f7d6c;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cert-guide {
+  max-width: 331px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.cert-guide summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cert-guide ol {
+  margin: 8px 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.6;
+}
+
+.cert-guide code {
+  font-size: 11px;
+}
+
+.hash-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.hash-copy button {
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--surface-dim);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.retry-btn {
+  margin-top: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.stamp {
+  padding: 0.4rem 0.6rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-dim);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.stamp.bad {
+  border-color: color-mix(in srgb, var(--bad) 45%, transparent);
+  color: var(--bad);
+}
+
+/* ── 약관 원문 · PDF 원본 ── */
+
+.original h3 {
+  margin: 8px 0 4px;
+  font-size: 15px;
+  word-break: keep-all;
+}
+
+.original-meta {
+  margin: 0 0 14px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.original-clauses {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.original-clauses li {
+  padding-left: 10px;
+  border-left: 3px solid var(--im-green);
+}
+
+.original-clauses h4 {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.original-clauses p {
+  margin: 0;
+  color: #374151;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre-line; /* 서식의 표 행은 줄바꿈으로 나눠 적어 두었다 */
+}
+
+.original-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.original-pages a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.original-pages img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1240 / 1753;
+}
+
+.original-page-no {
+  position: absolute;
+  right: 0.35rem;
+  bottom: 0.35rem;
+  padding: 0.22rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(23, 22, 26, 0.72);
+  color: #fff;
+  font-size: 0.68rem;
+  line-height: 1;
+}
+
+/* ── 약관 개정 알림 (동의한 버전보다 새 버전이 있을 때 영수증 위에) ── */
+
+.renewal-detail {
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--bad) 30%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bad) 8%, var(--surface));
+  font-size: 13px;
+}
+
+.clause-diff {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.clause-diff-title {
+  font-weight: 600;
+}
+
+.clause-diff-before {
+  color: var(--text-dim);
+  text-decoration: line-through;
+}

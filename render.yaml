@@ -1,0 +1,24 @@
+# Render Blueprint — API 서버 (FastAPI). render.com → New → Blueprint → 이 레포 선택.
+# 무료 티어는 15분 유휴 후 잠들고 다음 요청에서 깨어나는 데 ~50초 걸린다 (docs/RUNBOOK.md 시연 체크리스트 참고).
+# 블록체인 키는 여기 넣지 않는다 — 기록은 Vercel 함수(web/api/record.js)와 contract/scripts/record-receipts.js 가 한다.
+
+services:
+  - type: web
+    name: consent-receipt-api
+    runtime: python
+    plan: free
+    rootDir: .
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+      - key: LLM_MODE
+        value: fixture
+      - key: LLM_MODEL
+        value: claude-sonnet-5
+      - key: ANTHROPIC_API_KEY
+        sync: false          # Render 대시보드에서 직접 입력 (커밋 금지)
+      - key: CORS_ORIGINS
+        sync: false          # Vercel 배포 도메인 (배포 후 채운다)

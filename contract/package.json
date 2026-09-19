@@ -1,0 +1,26 @@
+{
+  "name": "consent-receipt-contract",
+  "version": "0.2.0",
+  "description": "동의 영수증 — 영수증 해시 봉인 스마트컨트랙트 (ConsentRegistry)",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "abi": "hardhat compile && node scripts/export-abi.js",
+    "wallet": "node scripts/new-wallet.js",
+    "balance:sepolia": "hardhat run scripts/balance.js --network sepolia",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "verify:sepolia": "node scripts/verify.js sepolia",
+    "record:sepolia": "hardhat run scripts/record-receipts.js --network sepolia"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.1.2",
+    "@nomicfoundation/hardhat-ethers": "^3.1.3",
+    "@nomicfoundation/hardhat-verify": "^2.1.3",
+    "chai": "^4.5.0",
+    "dotenv": "^17.4.2",
+    "ethers": "^6.17.0",
+    "hardhat": "^2.29.1"
+  }
+}
