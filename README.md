@@ -257,7 +257,7 @@ git clone <이 저장소 주소>
 cd web
 npm install
 npm run dev              # http://localhost:5173/consent.html · /vault.html
-npm run build:offline    # web/dist-offline/ 의 consent.html · vault.html 을 더블클릭으로 실행
+npm run build:offline    # web/dist-offline/ 의 1_iM_Docent.html · 2_iM_Print.html 을 더블클릭으로 실행
 ```
 
 환경변수가 없어도 두 앱은 뜹니다(기록만 "실패"로 표시). 체인 기록까지 하려면 [`web/.env.example`](web/.env.example)의 `RECORDER_PRIVATE_KEY`(테스트넷 전용 지갑)가 필요합니다.

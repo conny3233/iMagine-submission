@@ -1,0 +1,8 @@
+{
+  "_설명": "제출용 빌드(npm run build:offline)의 폴더 모양. 겉에는 더블클릭할 HTML 두 장만 두고, 원문·영상·아이콘은 files 폴더에 모은다. src/lib/paths.ts · scripts/build-offline.mjs · e2e/smoke.mjs 가 함께 읽는다.",
+  "pages": {
+    "consent": "1_iM_Docent.html",
+    "vault": "2_iM_Print.html"
+  },
+  "files": "앱_자료"
+}

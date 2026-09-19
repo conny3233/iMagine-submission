@@ -5,7 +5,7 @@
 
 - 앱 ① iM Docent: <https://i-magine-yzla.vercel.app/consent.html>
 - 앱 ② iMprint: <https://i-magine-yzla.vercel.app/vault.html>
-- 제출본(인터넷 없이): `web/dist-offline/consent.html` · `vault.html` — 더블클릭
+- 제출본(인터넷 없이): `web/dist-offline/1_iM_Docent.html` · `2_iM_Print.html` — 더블클릭 (원문·영상은 옆 `앱_자료/`)
 
 > 촬영 전에 `cd web && npm run e2e -- --url https://i-magine-yzla.vercel.app --record` 를 한 번 돌려 22항목이 모두 ✔ 인지 확인하세요 (Sepolia 에 영수증 3건을 실제로 적습니다).
 > iMprint 보관함에는 **같은 약관마다 가장 최근 결정 하나만** 남습니다. 촬영 전 연습으로 쌓인 영수증은 새로 동의하면 저절로 바뀝니다.

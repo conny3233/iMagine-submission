@@ -11,7 +11,7 @@
 // 시스템 크롬을 쓴다(puppeteer-core). 크롬 경로가 다르면 CHROME 환경변수로 준다.
 // 체인 대조는 인터넷이 필요하다 — 안 되면 그 항목만 건너뛰고 나머지는 계속한다.
 
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -40,7 +40,12 @@ const CHROME =
       ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
       : "/usr/bin/google-chrome");
 
-if (OFFLINE && !existsSync(join(HERE, "..", "dist-offline", "consent.html"))) {
+// 제출용 빌드는 파일 이름이 다르다 (consent.html → 1_iM_Docent.html, offline-layout.json)
+const LAYOUT = JSON.parse(readFileSync(join(HERE, "..", "offline-layout.json"), "utf8"));
+const pagePath = (path) =>
+  OFFLINE ? path.replace(/^(consent|vault)\.html/, (_, page) => LAYOUT.pages[page]) : path;
+
+if (OFFLINE && !existsSync(join(HERE, "..", "dist-offline", LAYOUT.pages.consent))) {
   throw new Error("dist-offline 이 없습니다 — 먼저 npm run build:offline 을 하세요.");
 }
 if (SHOTS) mkdirSync(join(HERE, "shots"), { recursive: true });
@@ -76,7 +81,7 @@ async function open(path, { width = 393, height = 852, context = browser } = {})
   });
   page.on("pageerror", (e) => consoleErrors.push(String(e)));
   page.on("dialog", (d) => d.accept());
-  await page.goto(path.startsWith("http") || path.startsWith("file:") ? path : BASE + path, { waitUntil: "networkidle0" });
+  await page.goto(path.startsWith("http") || path.startsWith("file:") ? path : BASE + pagePath(path), { waitUntil: "networkidle0" });
   return page;
 }
 
